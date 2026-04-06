@@ -66,13 +66,16 @@ addBook.addEventListener("click", () => {dialog.showModal()});
 const submitNewBook = document.querySelector(".Submit");
 const cancelNewBook = document.querySelector(".CloseButton")
 
-submitNewBook.addEventListener("click", () => {
+submitNewBook.addEventListener("click", (e) => {
+    e.preventDefault()
     const newTitle = document.querySelector("#title").value;
     const newAuthor= document.querySelector("#author").value;
     const newPages= document.querySelector("#pages").value;
 
     addBookToLibrary(newTitle, newAuthor, newPages);
+    container.innerHTML="";
     displayLibrary();
+    dialog.close();
 
 })
 
